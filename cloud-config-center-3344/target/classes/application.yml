@@ -1,0 +1,25 @@
+server:
+  port: 3344
+
+spring:
+  application:
+    name: clooud-config-center
+  cloud:
+    config:
+      server:
+        git:
+          uri: git@github.com:Bbbixia/springcloud-config.git
+
+          ##搜索目录
+          search-paths:
+            - springcloud-config
+#        读取分支
+      label: master
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://zpc:123456@eureka7001.com:7001/eureka,http://zpc:123456@eureka7002.com:7002/eureka
+  instance:
+    instance-id: springconfig3344

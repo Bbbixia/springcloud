@@ -1,0 +1,32 @@
+server:
+  port: 80
+
+spring:
+  application:
+    name: cloud-order-service
+
+eureka:
+  client:
+    #是否注册
+    register-with-eureka: true
+    #是否抓取注册信息 默认为true,单点无所谓，但是集群必须设置为true才能配合ribbon使用负载均衡
+    fetch-registry: true
+    #注册地址
+    service-url:
+      #服务端配置了账户和密码
+      defaultZone: http://zpc:123456@eureka7001.com:7001/eureka,http://zpc:123456@eureka7002.com:7002/eureka
+  instance:
+    instance-id: order80
+    prefer-ip-address: true #访问路径显示ip
+    lease-expiration-duration-in-seconds: 20
+    lease-renewal-interval-in-seconds: 2
+
+ribbon :
+  #指的是建立连接所有的时间，适用于网络状况正常的情况下，两端所使用的时间
+  ReadTimeout:  5000
+  #指的是建立连接后从服务端读取到可用资源所用的时间
+  ConnecTimeout:  5000
+logging:
+  level:
+    #以配置类中的级别打印以debug模式打印日志 监控哪个接口
+    com.hzit.springcloud.service.PaymentFeignService: debug

@@ -1,0 +1,14 @@
+server:
+  port: 8005
+
+#spring:
+#  application:
+#    name: cloud-payment-service  #项目名称，最好不要变动注册zookeeper就是用这个名字
+#  cloud:
+#    zookeeper:
+#      connect-string: 192.168.0.191:2181
+
+
+
+
+
